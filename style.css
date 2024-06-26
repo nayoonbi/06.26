@@ -1,0 +1,652 @@
+/* 기본 설정 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* 전체 body 스타일 */
+body {
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+    overflow: hidden;
+}
+
+/* 컨테이너 설정 */
+#container {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    scroll-snap-type: y mandatory;
+    overflow: hidden;
+    overflow-y: scroll;
+    scroll-behavior: smooth;
+}
+
+/* 세로 스크롤 각 섹션 설정 */
+.scroll {
+    scroll-snap-align: start;
+    height: 100%;
+}
+
+.no-scroll {
+    overflow: hidden;
+}
+
+/* 페이지 전환 애니메이션 */
+@keyframes scroll {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-100%); }
+}
+
+/* 위 아래 애니메이션 */
+@keyframes upDown {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-4vh);
+    }
+}
+
+/* 페이드 인 애니메이션 */
+@keyframes fadein {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+/* 각 페이지 컨테이너 */
+.page {
+    scroll-snap-align: start;
+}
+
+/* 각 섹션 스타일 */
+section {
+    width: 50vw;
+    height: 100vh;
+    margin: 0 auto;
+    text-align: center;
+    position: relative;
+}
+
+/* 스크롤 페이드 인 애니메이션 */
+.scroll-fade {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 1s ease, transform 1s ease;
+}
+
+.scroll-fade.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* 첫 번째 페이지 스타일 */
+.bgwh {
+    width: 100vw;
+    height: 100vh;
+    color: white;
+    overflow: hidden;
+}
+
+.logo {
+    margin-top: 20px;
+}
+
+.nav {
+    display: flex;
+    justify-content: space-between;
+    margin: 20px 0;
+    position: relative;
+}
+
+.nav a {
+    margin: 0;
+    font-family: 'Pretendard';
+    font-size: 3vw;
+    font-weight: 100;
+    color: #999999;
+    flex: 1;
+    text-align: center;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.nav a:first-child {
+    text-align: left;
+}
+
+.nav a:last-child {
+    text-align: right;
+}
+
+.nav a:hover {
+    color: #333333;
+}
+
+.nav a:active {
+    color: #000000;
+}
+
+.mainhook {
+    margin-top: 10vh;
+}
+
+.mainhook :nth-child(1){
+    position: relative;
+    z-index: 1;
+    animation: upDown 5s cubic-bezier(0.68, -0.75, 0.32, 1.75) infinite;
+}
+
+.mainhook img {
+    display: flex;
+    margin: 0 auto;
+    width: 20vw;
+    height: auto;
+}
+
+.maintext {
+    display: flex;
+    color: black;
+}
+
+.maintext p {
+    font-family: 'Berlin Sans FB Demi', sans-serif;
+    font-size: 7vw;
+}
+
+.maintext p:first-child {
+    position: absolute;
+    top: 30vh;
+    left: -1vw;
+    z-index: 2;
+}
+
+.maintext p:last-child {
+    position: absolute;
+    bottom: 25vh;
+    right: -5vw;
+    z-index: 2;
+}
+
+/* 두 번째 페이지 스타일 */
+.bgbk {
+    width: 100vw;
+    height: 100vh;
+    background-color: black;
+    overflow: hidden;
+}
+
+.title_sec2 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 35%;
+    align-items: flex-end;
+    color: white;
+}
+
+.title_sec2 p {
+    font-family: 'Pretendard';
+    font-size: 4vw;
+    margin: 0;
+}
+
+.title_sec2 p:first-child {
+    font-weight: 700;
+    text-align: right;
+    animation: fadein 5s forwards;
+}
+
+.title_sec2 p:last-child {
+    font-weight: 200;
+    text-align: right;
+}
+
+.title_sec2 a {
+    display: flex;
+    align-items: center;
+    margin-right: 14vw;
+}
+
+.title_sec2 img {
+    width: 10vw;
+    height: auto;
+    margin-top: 5%;
+}
+
+.about {
+    width: 25%;
+    height: auto;
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 1%;
+    margin-left: 23.5%;
+}
+
+.about p {
+    font-family: 'Pretendard';
+    font-size: 1vw;
+    text-align: left;
+    margin-right: 1vw;
+    color: white;
+}
+
+.about p:nth-child(1),
+.about p:nth-child(2) {
+    font-weight: 700;
+}
+
+.about p:nth-child(3),
+.about p:nth-child(4) {
+    font-weight: 100;
+}
+
+.aboutself {
+    margin-bottom: 5%;
+    margin-left: 23.5%;
+}
+
+.aboutself p {
+    font-family: 'Pretendard';
+    font-size: 1.2vw;
+    text-align: left;
+    font-weight: 400;
+    color: #999999;
+}
+
+.secc {
+    margin-top: -3%;
+    margin-left: 3%;
+    display: inline-block;
+    vertical-align: top;
+}
+
+.secc a {
+    display: block;
+    text-align: left;
+    margin: 0;
+    font-family: 'Pretendard';
+    font-size: 3vw;
+    font-weight: 100;
+    text-decoration: none;
+    transition: color 0.3s;
+    margin-left: -14.2vw;
+}
+
+.secc a:nth-child(1){
+    color: #FF0000;
+    opacity: 50%;
+}
+
+.secc a:nth-child(2){
+    color: #FF7A00;
+    opacity: 50%;
+}
+
+.secc a:nth-child(3){
+    color: #00B528;
+    opacity: 50%;
+}
+
+.secc a:nth-child(4){
+    color: #0085FF;
+    opacity: 50%;
+}
+
+/* 활성화된 링크 스타일 */
+.secc a:hover {
+    opacity: 100%;
+}
+
+.secc a.active {
+    opacity: 100%;
+}
+
+/* seccright 클래스 */
+.seccright {
+    font-size: 1vw;
+    font-family: 'Pretendard';
+    font-weight: 100;
+    text-align: left;
+    color: white;
+    margin-left: 3vw;
+    margin-top: -1vh;
+    position: absolute;
+    z-index: 100;
+    margin-top: -29vh;
+    margin-left: 27vw;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out, visibility 0.5s;
+}
+
+.seccright.active {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.seccright.fade-out {
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20px);
+}
+
+/* 세 번째 페이지 스타일 */
+.bgred, .bgor, .bggr, .bgbl {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    overflow: hidden;
+}
+
+.bgred {
+    background-color: #FF0000;
+}
+
+.bgor {
+    background-color: #FF7A00;
+}
+
+.bggr {
+    background-color: #00B528;
+}
+
+.bgbl {
+    background-color: #0085FF;
+}
+
+.floor1, .floor2, .floor3 {
+    width: 100%;
+    height: 33%;
+    padding: 1%;
+    box-sizing: border-box;
+}
+
+.floor1 img, .floor2 img, .floor3 img {
+    width: 100%;
+    height: 100%;
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+.floor2-1 img{
+    width: 100vw;
+    height: 100vh;
+}
+
+.bk701 {
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    opacity: 80%;
+    z-index: 2;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.elevator {
+    z-index: 101;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    position: absolute;
+    top: 38vh;
+}
+
+.hidden {
+    display: none;
+}
+
+.progress-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 5px; /* 높이를 원하는 대로 조절 */
+    z-index: 101; /* 다른 요소보다 위에 표시되도록 */
+    transition: width 0.2s ease;
+}
+
+#rightPanel3 .progress-bar {
+    background-color: red; /* 원하는 색상으로 변경 */
+}
+
+#rightPanel4 .progress-bar {
+    background-color: orange /* 원하는 색상으로 변경 */
+}
+
+#rightPanel5 .progress-bar {
+    background-color: green; /* 원하는 색상으로 변경 */
+}
+
+#rightPanel6 .progress-bar {
+    background-color: blue; /* 원하는 색상으로 변경 */
+}
+
+
+/* 기본적으로 오른쪽 패널은 숨김 처리 */
+
+.right-panel {
+    z-index: 100;
+    position: fixed;
+    top: 0;
+    right: -55vw;
+    width: 50vw;
+    height: 100%;
+    transition: right 0.3s ease;
+    overflow-y: auto;
+    box-sizing: border-box;
+}
+
+.right-panel h1 {
+    font-family: Pretandard;
+    font-size: 1vw; 
+    font-weight: 100;
+    margin-top: 20vh;
+    margin-left: 6vw;
+}
+
+.right-panel img {
+    margin-left: 6vw;
+    width: 40vw;
+    height: auto;
+}
+
+.right-panel h2 {
+    font-family: Pretandard;
+    font-size: 2.5vw;
+    font-weight: 900;
+    margin-left: 6vw;
+    margin-top: 5vh;
+    margin-bottom: 15vh;
+    text-decoration: underline;
+    text-decoration-thickness: 0.2vh;
+}
+
+.scrollable-content hr {
+    border: none;
+    border-top: 1px solid #333333; /* 원하는 색상으로 변경 */
+    width: 80%; /* 원하는 너비로 변경 */
+    margin: 20px auto; /* 수평 중앙 정렬 및 상하 여백 설정 */
+    margin-top: 15vh;
+}
+
+.right-panel p {
+    font-family: Pretendard;
+    font-size: 1vw;
+    font-weight: 100;
+    margin-left: 6vw;
+    margin-top: 2vh;
+    margin-bottom: 5vh;
+    color: #999999;
+    width: 40vw;
+}
+
+
+/* 각 페이지의 오른쪽 패널 색상 */
+#rightPanel3,
+#rightPanel4,
+#rightPanel5,
+#rightPanel6 {
+    background-color: rgb(0, 0, 0);
+    color: white;
+    box-shadow: -10px 0 5px rgba(0, 0, 0, 0.5); /* 왼쪽으로 5px만큼 그림자 추가 */
+}
+
+
+/* visible 클래스가 추가되면 패널이 화면에 나타남 */
+.right-panel.visible {
+    right: 0;
+}
+
+.scrollable-content {
+    height: auto;
+}
+
+.section3 {
+    z-index: 3;
+    position: relative;
+    transform: translateY(-50%);
+    text-align: center;
+}
+
+.title_sec3 p {
+    font-family: 'Pretendard';
+    font-size: 5vw;
+    font-weight: 900;
+    color: white;
+}
+
+.sub_sec3 p {
+    font-family: 'Pretendard';
+    font-size: 2vw;
+    font-weight: 400;
+    color: white;
+}
+
+.view_sec3 p {
+    font-family: 'Pretendard';
+    font-size: 1vw;
+    font-weight: 100;
+    color: white;
+    border: 1px solid white;
+    padding: 0.5vw 2vw; 
+    display: inline-block; 
+    border-radius: 5%;
+    margin: 5vh 0 0 0;
+}
+
+/* '더 보기' 링크의 기본 스타일 제거 */
+.view_sec3 p a {
+    text-decoration: none; /* 밑줄 제거 */
+    color: inherit; /* 기본 색상 유지 */
+}
+
+/* '더 보기' 링크를 마우스 호버시 포인터로 변경 */
+.view_sec3 p a:hover {
+    cursor: pointer;
+}
+
+.section3 {
+    z-index: 3;
+    height: auto;
+    text-align: center;
+    position: absolute;
+    left: 25%;
+    top: 35vh;
+    transform: translate(-50%, 0);
+}
+
+/* red 페이지 */
+.bgred .elevator a:nth-child(1):hover {
+    filter: brightness(0.5);
+}
+
+.bgred .elevator a:nth-child(2):hover {
+    content: url('img/느시/orangehook.png');
+    filter: brightness(0.5);
+}
+
+.bgred .elevator a:nth-child(3):hover {
+    content: url('img/느시/greenhook.png');
+    filter: brightness(0.5);
+}
+
+.bgred .elevator a:nth-child(4):hover {
+    content: url('img/느시/bluehook.png');
+    filter: brightness(0.5);
+}
+
+/* orange 페이지 */
+.bgor .elevator a:nth-child(1):hover {
+    content: url('img/느시/redhook.png');
+    filter: brightness(0.5);
+}
+
+.bgor .elevator a:nth-child(2):hover {
+    filter: brightness(0.5);
+}
+
+.bgor .elevator a:nth-child(3):hover {
+    content: url('img/느시/greenhook.png');
+    filter: brightness(0.5);
+}
+
+.bgor .elevator a:nth-child(4):hover {
+    content: url('img/느시/bluehook.png');
+    filter: brightness(0.5);
+}
+
+/* green 페이지 */
+.bggr .elevator a:nth-child(1):hover {
+    content: url('img/느시/redhook.png');
+    filter: brightness(0.5);
+}
+
+.bggr .elevator a:nth-child(2):hover {
+    content: url('img/느시/orangehook.png');
+    filter: brightness(0.5);
+}
+
+.bggr .elevator a:nth-child(3):hover {
+    filter: brightness(0.5);
+}
+
+.bggr .elevator a:nth-child(4):hover {
+    content: url('img/느시/bluehook.png');
+    filter: brightness(0.5);
+}
+
+/* blue 페이지 */
+.bgbl .elevator a:nth-child(1):hover {
+    content: url('img/느시/redhook.png');
+    filter: brightness(0.5);
+}
+
+.bgbl .elevator a:nth-child(2):hover {
+    content: url('img/느시/orangehook.png');
+    filter: brightness(0.5);
+}
+
+.bgbl .elevator a:nth-child(3):hover {
+    content: url('img/느시/greenhook.png');
+    filter: brightness(0.5);
+}
+
+.bgbl .elevator a:nth-child(4):hover {
+    filter: brightness(0.5);
+}
